@@ -1,0 +1,23 @@
+body {
+  font-family: "Source Serif Pro", serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.5;
+}
+body .container {
+  border-radius: 15px;
+  background-color: #2bd2c2;
+  min-height: 100vh;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+body .container .header h1 {
+  text-align: center;
+}
+body .container .tasks-bord .box-tasks .task {
+  padding: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
