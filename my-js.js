@@ -1,31 +1,5 @@
 'use strict';
-/*let tasksForm = document.querySelector('#tasks-form');
-let formInputTask = document.querySelector('#input-task');
-let boxLiTasks = document.querySelector('list-tasks');
-formInputTask.addEventListener('input', getNewTask);
 
-function getNewTask() {
-    let form = document.forms.formBox;
-    let inputTextForm = formBox.elements.task;
-    let valueText = inputTextForm.value;
-    /!*inputTextForm.value = '';*!/
-
-    form.onsubmit = function (event) {
-        valueText = inputTextForm.value;
-        event.preventDefault();
-        if (!valueText) {
-            inputTextForm.focus();
-            return false;
-        }
-        let newTask = document.createElement('li');
-
-
-        newTask.classList.add('list-group-item');
-        newTask.innerHTML = formBox.elements.task.value;
-
-    }
-
-}*/
 document.addEventListener("DOMContentLoaded", onPageLoaded);
 
 function onPageLoaded() {
@@ -34,39 +8,47 @@ function onPageLoaded() {
 
     function createTodo() {
 
+        const newTodo = createTask.value;
+        if (!newTodo) return;
         const task = document.createElement("div");
         task.classList.add('task');
+        task.classList.add('list-group-item');
+
+
         boxTasks.append(task);
+        let inputGroup = document.createElement("div");
+        inputGroup.classList.add('input-group');
+
+        task.append(inputGroup);
+
+        let input = document.createElement('input');
+        input.classList.add('form-control');
+        input.classList.add('new-task');
+        inputGroup.append(input);
+
+        let inputTask = document.querySelector('input.new-task');
+        inputTask.setAttribute('type', 'text');
+        inputTask.setAttribute('aria-label', 'Text input with checkbox');
+        inputTask.setAttribute('aria-describedby', 'remove-btn');
+
+
+        input.value = newTodo;
+
+        inputGroup.insertAdjacentHTML('afterbegin', '<div class="input-group-prepend">\n' +
+            '                           <div class="input-group-text">\n' +
+            '                               <input type="checkbox" aria-label="Checkbox for following text input" >\n' +
+            '                           </div>\n' +
+            '                       </div>')
+
+        inputGroup.insertAdjacentHTML('beforeend', '<div class="input-group-append">\n' +
+            '                           <button class="btn btn-outline-secondary remove-btn" type="button"><img src="image/del.svg" alt=""></button>\n' +
+            '                       </div>')
+
+        createTask.value = '';
 
 
 
-
-
-
-        task.insertAdjacentHTML('afterbegin', '<div class="list-group-item">\n' +
-                '                   <div class="input-group">\n' +
-                '                       <div class="input-group-prepend">\n' +
-                '                           <div class="input-group-text">\n' +
-                '                               <input type="checkbox" aria-label="Checkbox for following text input" >\n' +
-                '                           </div>\n' +
-                '                       </div>\n' +
-                '                       <input id="input" type="text" class="form-control new-task" aria-label="Text input with checkbox" aria-describedby="remove-btn">\n' +
-                '                       <div class="input-group-append">\n' +
-                '                           <button class="btn btn-outline-secondary" type="button" id="remove-btn"><img src="image/del.svg" alt=""></button>\n' +
-                '                       </div>\n' +
-                '                   </div>\n' +
-                '               </div>');
-            let inputNewTask = document.querySelector('.new-task');
-
-
-            const newTodo = createTask.value;
-            inputNewTask.value = newTodo;
-
-            inputNewTask.append(newTodo);
-
-
-            createTask.value = '';
-    }
+}
 
 
     createTask.addEventListener('keydown', function(event) {
@@ -75,5 +57,23 @@ function onPageLoaded() {
         }
     });
 
+
+
+
+
 }
 
+
+/*
+document.body.addEventListener('click', removeContainer);
+function removeContainer(event) {
+    console.log('5');
+    let ret = event.target.classList.contains('remove-btn');
+
+
+    if (ret) {
+        event.target.closest('div.task').remove();
+    }
+
+
+}*/
