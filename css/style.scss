@@ -3,36 +3,127 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  color: #000000;
+  color: #CEDEF2;
   line-height: 1.5;
 }
+input.checkedText {
+  color: #0437ec;
+  text-decoration: line-through;
+
+}
+/*.input-group>.input-group-prepend>.input-group-text {
+  border-top-right-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+   background-color: transparent;
+}*/
+
+
+
+.btn-view {
+ border-color: #CEDEF2;;
+  color: #CEDEF2;
+
+  &:hover {
+    background-color: #0455BF;
+    border-color: #0455BF;
+  }
+
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+  background-color: #3890dc;
+  border-color: #CEDEF2;
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgb(4, 104, 191);
+  }
+
+
+}
+
+
 body {
   @include standard-font;
+  background-color: #CEDEF2;
   .container {
     border-radius: 15px;
-    background-color: #2bd2c2;
+    background-color: #0468BF;
+    box-shadow: 0 0 0.7em black;
     min-height: 100vh;
     padding-bottom: 16px;
     padding-top: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
 
     .header {
       h1 {
         text-align: center;
       }
     }
-
+    .create-task {
+      color: #03178C;
+    }
+    ::placeholder {
+      color: #CEDEF2;
+    }
     .tasks-bord {
-
       .create-task {
-
+        background-color: transparent;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
       }
       .box-tasks {
-        .task {
-          padding: 0;
-        }
+        background-color: transparent;
 
+        .task {
+          background-color: transparent;
+          padding-left: 0;
+          padding-right: 0;
+          border-top: none;
+
+          .input-group {
+              .input-group-prepend {
+                .input-group-text {
+                  border-top-right-radius: .25rem;
+                  border-bottom-right-radius: .25rem;
+                  background-color: transparent;
+                  color: #CEDEF2;
+
+                  input.checkbox {
+
+                  }
+
+                }
+              }
+
+              input.form-control.text-task.form-input-task {
+                border: none;
+                color: #03178C;
+                background-color: transparent;
+
+              }
+              .input-group-append {
+                .remove-btn {
+                  border-top-left-radius: .25rem;
+                  border-bottom-left-radius: .25rem;
+
+                }
+              }
+
+            }
+
+
+
+
+        }
       }
     }
+
+
+
   }
+
+
+
+
 
 }

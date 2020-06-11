@@ -1,23 +1,86 @@
+input.checkedText {
+  color: #0437ec;
+  text-decoration: line-through;
+}
+
+/*.input-group>.input-group-prepend>.input-group-text {
+  border-top-right-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+   background-color: transparent;
+}*/
+.btn-view {
+  border-color: #CEDEF2;
+  color: #CEDEF2;
+}
+.btn-view:hover {
+  background-color: #0455BF;
+  border-color: #0455BF;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
+  background-color: #3890dc;
+  border-color: #CEDEF2;
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #0468bf;
+}
+
 body {
   font-family: "Source Serif Pro", serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  color: #000000;
+  color: #CEDEF2;
   line-height: 1.5;
+  background-color: #CEDEF2;
 }
 body .container {
   border-radius: 15px;
-  background-color: #2bd2c2;
+  background-color: #0468BF;
+  box-shadow: 0 0 0.7em black;
   min-height: 100vh;
   padding-bottom: 16px;
   padding-top: 16px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 body .container .header h1 {
   text-align: center;
 }
+body .container .create-task {
+  color: #03178C;
+}
+body .container ::placeholder {
+  color: #CEDEF2;
+}
+body .container .tasks-bord .create-task {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+body .container .tasks-bord .box-tasks {
+  background-color: transparent;
+}
 body .container .tasks-bord .box-tasks .task {
-  padding: 0;
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  border-top: none;
+}
+body .container .tasks-bord .box-tasks .task .input-group .input-group-prepend .input-group-text {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  background-color: transparent;
+  color: #CEDEF2;
+}
+body .container .tasks-bord .box-tasks .task .input-group input.form-control.text-task.form-input-task {
+  border: none;
+  color: #03178C;
+  background-color: transparent;
+}
+body .container .tasks-bord .box-tasks .task .input-group .input-group-append .remove-btn {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
 }
 
 /*# sourceMappingURL=style.css.map */
