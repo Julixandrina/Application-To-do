@@ -5,20 +5,18 @@ document.addEventListener("DOMContentLoaded", onPageLoaded);
 function onPageLoaded() {
 
 
-    let createTask = document.querySelector("#input-task");
+    let createTask = document.querySelector(".create-task");
     let boxTasks = document.querySelector(".box-tasks");
     let btnClearFinished = document.querySelector('.btn-clear-finished');
     let btnAddTask = document.querySelector('.btn-add-task');
 
 
-    function createTodo() {
-        let newTodo = createTask.value;//значение введённое в инпут
-        if (!newTodo) return;
+    function createTodo(newTodo) {
 
         let task = document.createElement("div");//создание блока для нового таска
         task.classList.add('task');
         task.classList.add('list-group-item');
-        boxTasks.append(task);
+
 
 
         let groupContainerTask = document.createElement("div");//создание контейнера для внутринних блоков таска
@@ -33,6 +31,14 @@ function onPageLoaded() {
         inputTextTask.value = newTodo;
         createTask.value = '';
 
+        inputTextTask.addEventListener('keydown', function(event) {
+            if (event.code === 'Enter') {
+                let task = createTodo("");
+                event.target.closest('.task').after(task);
+                task.querySelector('.text-task').focus()
+            }
+        })
+
 
         groupContainerTask.append(inputTextTask);
         groupContainerTask.insertAdjacentHTML('afterbegin', '<div class="input-group-prepend">\n' +
@@ -45,16 +51,25 @@ function onPageLoaded() {
             '                           <button class="btn btn-outline-primary remove-btn btn-view" type="button"><img src="image/del.svg" alt=""></button>\n' +
             '                       </div>')
 
-        inputTextTask.onkeydown = function (event) {
+       /* inputTextTask.onkeydown = function (event) {
             if (inputTextTask ===  document.activeElement) {
                 if (event.code === 'Enter') {
                     console.log('enter');
+                    inputTextTask.blur()
 
                 }
-
+            }
+        }*/
+       /* inputTextTask.addEventListener('keydown', function (event) {
+            if (event.code === 'Enter') {
+                /!*console.log('enter');
+                inputTextTask.blur()*!/
+                event.target.closest()
 
             }
-        }
+
+        })*/
+        /*createNewTaskAfter(inputTextTask);*/
 
 
         let deleteBtn = document.querySelectorAll('button.remove-btn');
@@ -64,12 +79,67 @@ function onPageLoaded() {
 
         let checkBox = groupContainerTask.querySelector('.checkbox');
         taskCheckboxBindEventClick(checkBox);
+
+        return task;
     }
+
     createTask.addEventListener('keydown', function(event) {
         if (event.code === 'Enter') {
-            createTodo();
+            /*let curTask = document.querySelector('.text-task');
+
+            if (curTask === document.activeElement) {
+                curTask.addEventListener('keydown', function (event) {
+                    if (event.code === 'Enter') {
+                        console.log(curTask);
+                        createTodo();
+                    }
+
+                })
+
+            }*/
+
+            let newTodo = createTask.value;//значение введённое в главный инпут
+            if (!newTodo) return;
+
+            let task = createTodo(newTodo);
+            boxTasks.append(task);
         }
+
+
     });
+   /* function createNewTaskAfter() {
+        document.body.addEventListener('keydown', function (event) {
+            if (document.activeElement.closest('.text-task')) {
+
+                if (event.code === 'Enter') {
+                        function test() {
+                            console.log(document.activeElement);
+                            createTodo();
+                        }
+                        test();
+                    }
+
+            }
+
+
+
+
+        });
+    }*/
+
+/*
+    function createNewTaskAfter(elem) {
+        elem.addEventListener('keydown', function (event) {
+            /!*if (event.code === 'Enter') {
+                createTodo();
+            }*!/
+            console.log(elem);
+
+
+        })
+    }
+*/
+
     btnClearFinished.addEventListener('click', function (event) {
         clearTaskFinished(event);
     })
@@ -89,6 +159,8 @@ function taskCheckboxBindEventClick(checkboxElement) {
     });
 
 }
+
+
 function listenDeleteTodo(element) {
     element.addEventListener("click", function (event) {
         event.target.closest('.task').remove();

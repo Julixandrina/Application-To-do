@@ -6,7 +6,7 @@
   color: #CEDEF2;
   line-height: 1.5;
 }
-input.checkedText {
+.checkedText {
   color: #0437ec;
   text-decoration: line-through;
 
@@ -60,7 +60,7 @@ body {
       }
     }
     .create-task {
-      color: #03178C;
+      color: #ffffff;
     }
     ::placeholder {
       color: #CEDEF2;
@@ -97,10 +97,15 @@ body {
 
               input.form-control.text-task.form-input-task {
                 border: none;
-                color: #03178C;
+                color: #ffffff;
                 background-color: transparent;
 
               }
+            input.form-control.text-task.form-input-task.checkedText {
+              color: #abb0bf;
+              text-decoration: line-through;
+
+            }
               .input-group-append {
                 .remove-btn {
                   border-top-left-radius: .25rem;

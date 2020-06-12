@@ -1,4 +1,4 @@
-input.checkedText {
+.checkedText {
   color: #0437ec;
   text-decoration: line-through;
 }
@@ -48,7 +48,7 @@ body .container .header h1 {
   text-align: center;
 }
 body .container .create-task {
-  color: #03178C;
+  color: #ffffff;
 }
 body .container ::placeholder {
   color: #CEDEF2;
@@ -75,8 +75,12 @@ body .container .tasks-bord .box-tasks .task .input-group .input-group-prepend .
 }
 body .container .tasks-bord .box-tasks .task .input-group input.form-control.text-task.form-input-task {
   border: none;
-  color: #03178C;
+  color: #ffffff;
   background-color: transparent;
+}
+body .container .tasks-bord .box-tasks .task .input-group input.form-control.text-task.form-input-task.checkedText {
+  color: #abb0bf;
+  text-decoration: line-through;
 }
 body .container .tasks-bord .box-tasks .task .input-group .input-group-append .remove-btn {
   border-top-left-radius: 0.25rem;
