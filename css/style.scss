@@ -11,6 +11,7 @@
   text-decoration: line-through;
 
 }
+
 /*.input-group>.input-group-prepend>.input-group-text {
   border-top-right-radius: .25rem;
   border-bottom-right-radius: .25rem;
@@ -20,12 +21,12 @@
 
 
 .btn-view {
- border-color: #CEDEF2;;
+ border-color: #CEDEF2;
   color: #CEDEF2;
 
   &:hover {
     background-color: #0455BF;
-    border-color: #0455BF;
+    border-color: #CEDEF2;
   }
 
 }
@@ -33,11 +34,24 @@
   background-color: #3890dc;
   border-color: #CEDEF2;
   &:focus {
-    box-shadow: 0 0 0 0.2rem rgb(4, 104, 191);
+    box-shadow: 0 0 0 0.1rem rgb(4, 104, 191);
   }
 
 
 }
+
+.custom-control-input:focus~.custom-control-label::before {
+  box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+}
+.custom-control-label::before {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.custom-control-label::after {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 
 
 body {
@@ -83,8 +97,9 @@ body {
           .input-group {
               .input-group-prepend {
                 .input-group-text {
-                  border-top-right-radius: .25rem;
-                  border-bottom-right-radius: .25rem;
+                 /* border-top-right-radius: .25rem;
+                  border-bottom-right-radius: .25rem;*/
+
                   background-color: transparent;
                   color: #CEDEF2;
 

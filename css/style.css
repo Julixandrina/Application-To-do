@@ -14,7 +14,7 @@
 }
 .btn-view:hover {
   background-color: #0455BF;
-  border-color: #0455BF;
+  border-color: #CEDEF2;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
@@ -22,7 +22,21 @@
   border-color: #CEDEF2;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem #0468bf;
+  box-shadow: 0 0 0 0.1rem #0468bf;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+}
+
+.custom-control-label::before {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.custom-control-label::after {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 body {
@@ -68,8 +82,8 @@ body .container .tasks-bord .box-tasks .task {
   border-top: none;
 }
 body .container .tasks-bord .box-tasks .task .input-group .input-group-prepend .input-group-text {
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  /* border-top-right-radius: .25rem;
+   border-bottom-right-radius: .25rem;*/
   background-color: transparent;
   color: #CEDEF2;
 }
