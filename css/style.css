@@ -87,6 +87,9 @@ body .container .tasks-bord .box-tasks .task .input-group .input-group-prepend .
   background-color: transparent;
   color: #CEDEF2;
 }
+body .container .tasks-bord .box-tasks .task .input-group .text-task:focus {
+  box-shadow: 0 0 0 0.1rem rgba(196, 11, 166, 0.25);
+}
 body .container .tasks-bord .box-tasks .task .input-group input.form-control.text-task.form-input-task {
   border: none;
   color: #ffffff;

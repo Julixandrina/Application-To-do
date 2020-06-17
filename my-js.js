@@ -13,6 +13,9 @@ function onPageLoaded() {
 
     function createTodo(newTodo) {
 
+
+
+
         let task = document.createElement("div");//создание блока для нового таска
         task.classList.add('task');
         task.classList.add('list-group-item');
@@ -29,6 +32,8 @@ function onPageLoaded() {
         inputTextTask.classList.add('form-input-task');
         inputTextTask.setAttribute('type', 'text');
         inputTextTask.value = newTodo;
+
+
         createTask.value = '';
 
         inputTextTask.addEventListener('keydown', function(event) {
@@ -38,6 +43,7 @@ function onPageLoaded() {
                 task.querySelector('.text-task').focus()
             }
         })
+
 
 
         groupContainerTask.append(inputTextTask);
@@ -53,19 +59,25 @@ function onPageLoaded() {
             '                       </div>')
 
 
-        let everyTask = boxTasks.querySelectorAll('.task');
-        let checkBoxes = groupContainerTask.querySelector('.custom-control-input')
-        let lengthBox = everyTask.length + 1;
-        let uniqueLabel = 'check' + lengthBox;
-        checkBoxes.id = uniqueLabel;
-
-        
-        let valueLabelFor = uniqueLabel;
-        let labelCheck = task.querySelector('.label-checkbox');
-        labelCheck.setAttribute('for', valueLabelFor);
 
 
 
+
+
+      /*if (inputTextTask.value  === "") {
+          let task = createTodo("");
+            inputTextTask.setAttribute('tabindex', '0');
+            let ret = inputTextTask.closest('.task');
+            let ter = ret.querySelector('.text-task');
+            if (ret) {
+                console.log(1)
+                ter.focus()
+                task.querySelector('.text-task').focus()
+            }
+
+            console.log(ter)
+
+        }*/
 
 
 
@@ -79,6 +91,19 @@ function onPageLoaded() {
         let checkBox = groupContainerTask.querySelector('.checkbox');
         taskCheckboxBindEventClick(checkBox);
 
+        let allCreatedTask = boxTasks.querySelectorAll('.task');
+
+        let checkBoxes = groupContainerTask.querySelector('.checkbox');
+        let labelCheck = task.querySelector('.label-checkbox');
+
+        let lengthBox = allCreatedTask.length + 1;
+
+        let uniqueLabelID = 'check' + lengthBox;
+        let uniqueLabelFor = 'check' + lengthBox;
+
+        checkBoxes.id = uniqueLabelID;
+        labelCheck.setAttribute('for', uniqueLabelFor);
+
         return task;
     }
 
@@ -91,7 +116,7 @@ function onPageLoaded() {
         if (event.code === 'Enter') {
 
             let newTodo = createTask.value;//значение введённое в главный инпут
-            if (!newTodo) return;
+           if (!newTodo) return;
 
             let task = createTodo(newTodo);
             boxTasks.append(task);
@@ -103,14 +128,20 @@ function onPageLoaded() {
     btnClearFinished.addEventListener('click', function (event) {
         clearTaskFinished(event);
     })
-    btnAddTask.addEventListener('click', function (event) {
+    /*btnAddTask.addEventListener('click', function (event) {
 
-
-
-
-        let newTodo = createTask.value;
+       /!* let newTodo = createTask.value;
         let task = createTodo(newTodo);
+        boxTasks.append(task);*!/
+
+
+    })*/
+    btnAddTask.addEventListener('click', function(event) {
+
+        let task = createTodo("");
         boxTasks.append(task);
+        task.querySelector('.text-task').focus();
+
     })
 }
 function taskCheckboxBindEventClick(checkboxElement) {
@@ -137,6 +168,7 @@ function  clearTaskFinished(event) {
         }
     }
 }
+
 
 
 
