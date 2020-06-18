@@ -81,27 +81,45 @@ body .container .tasks-bord .box-tasks .task {
   padding-right: 0;
   border-top: none;
 }
-body .container .tasks-bord .box-tasks .task .input-group .input-group-prepend .input-group-text {
-  /* border-top-right-radius: .25rem;
-   border-bottom-right-radius: .25rem;*/
+body .container .tasks-bord .box-tasks .task .task-group {
+  display: flex;
+  align-items: center;
+}
+body .container .tasks-bord .box-tasks .task .task-group .input-group-prepend {
   background-color: transparent;
   color: #CEDEF2;
 }
-body .container .tasks-bord .box-tasks .task .input-group .text-task:focus {
-  box-shadow: 0 0 0 0.1rem rgba(196, 11, 166, 0.25);
-}
-body .container .tasks-bord .box-tasks .task .input-group input.form-control.text-task.form-input-task {
+body .container .tasks-bord .box-tasks .task .task-group .text-task {
   border: none;
   color: #ffffff;
   background-color: transparent;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  overflow: hidden;
+  min-height: 2em;
+  height: 44px;
+  width: 100%;
 }
-body .container .tasks-bord .box-tasks .task .input-group input.form-control.text-task.form-input-task.checkedText {
+body .container .tasks-bord .box-tasks .task .task-group .text-task:focus {
+  box-shadow: 0 0 0 0.1rem white;
+}
+body .container .tasks-bord .box-tasks .task .task-group .text-task.checkedText {
   color: #abb0bf;
   text-decoration: line-through;
 }
-body .container .tasks-bord .box-tasks .task .input-group .input-group-append .remove-btn {
+body .container .tasks-bord .box-tasks .task .task-group .autogrow-textarea-mirror {
+  display: none;
+  overflow-wrap: break-word;
+  white-space: normal;
+  padding: 3px;
+  width: 600px;
+  font-size: 13px;
+  line-height: 18px;
+}
+body .container .tasks-bord .box-tasks .task .task-group .input-group-append .remove-btn {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
+  border: none;
 }
 
 /*# sourceMappingURL=style.css.map */

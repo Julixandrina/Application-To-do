@@ -23,8 +23,12 @@ function onPageLoaded() {
 
 
         let groupContainerTask = document.createElement("div");//создание контейнера для внутринних блоков таска
-        groupContainerTask.classList.add('input-group');
+        groupContainerTask.classList.add('task-group');
         task.append(groupContainerTask);
+
+
+
+
 
         let inputTextTask = document.createElement('input');//создание инпута для записи значения из формы ввода нового таска
         inputTextTask.classList.add('form-control');
@@ -33,6 +37,10 @@ function onPageLoaded() {
         inputTextTask.setAttribute('type', 'text');
         inputTextTask.value = newTodo;
 
+        let divTaxtarea = document.createElement('div');
+        divTaxtarea.classList.add('.autogrow-textarea-mirror');
+        divTaxtarea.innerHTML = inputTextTask.value;
+
 
         createTask.value = '';
 
@@ -40,13 +48,25 @@ function onPageLoaded() {
             if (event.code === 'Enter') {
                 let task = createTodo("");
                 event.target.closest('.task').after(task);
-                task.querySelector('.text-task').focus()
+                task.querySelector('.text-task').focus();
+                event.preventDefault();
+                return false;
             }
+        })
+        inputTextTask.addEventListener('input', function (event) {
+            let parentThisElement = event.target.closest('.task');
+            let inputDiv = parentThisElement.querySelector('.autogrow-textarea-mirror');
+
+
+            inputDiv.innerHTML = inputTextTask.value;
+
         })
 
 
 
+
         groupContainerTask.append(inputTextTask);
+        groupContainerTask.append(divTaxtarea);
         groupContainerTask.insertAdjacentHTML('afterbegin', '<div class="input-group-prepend">\n' +
             '        <div class="custom-control custom-checkbox">\n' +
             '            <input type="checkbox" class="checkbox custom-control-input" id="">\n' +
@@ -57,31 +77,6 @@ function onPageLoaded() {
         groupContainerTask.insertAdjacentHTML('beforeend', '<div class="input-group-append">\n' +
             '                           <button class="btn btn-outline-primary remove-btn btn-view" type="button"><img src="image/del.svg" alt=""></button>\n' +
             '                       </div>')
-
-
-
-
-
-
-
-      /*if (inputTextTask.value  === "") {
-          let task = createTodo("");
-            inputTextTask.setAttribute('tabindex', '0');
-            let ret = inputTextTask.closest('.task');
-            let ter = ret.querySelector('.text-task');
-            if (ret) {
-                console.log(1)
-                ter.focus()
-                task.querySelector('.text-task').focus()
-            }
-
-            console.log(ter)
-
-        }*/
-
-
-
-
 
 
         let deleteBtn = groupContainerTask.querySelector('button.remove-btn');
@@ -146,11 +141,20 @@ function onPageLoaded() {
 }
 function taskCheckboxBindEventClick(checkboxElement) {
     checkboxElement.addEventListener('change', function (event) {
-        let parentThisElement = event.target.closest('.input-group');
+        let parentThisElement = event.target.closest('.task');
         let inputText = parentThisElement.querySelector('.text-task');
+
+
         inputText.classList.toggle('checkedText');
+
+
     });
 }
+
+
+
+
+
 function listenDeleteTodo(element) {
 
     element.addEventListener("click", function (event) {

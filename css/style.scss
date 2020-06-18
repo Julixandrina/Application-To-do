@@ -94,40 +94,55 @@ body {
           padding-right: 0;
           border-top: none;
 
-          .input-group {
+          .task-group {
+            display: flex;
+            align-items: center;
               .input-group-prepend {
-                .input-group-text {
-                 /* border-top-right-radius: .25rem;
-                  border-bottom-right-radius: .25rem;*/
-
-                  background-color: transparent;
-                  color: #CEDEF2;
-
-                  input.checkbox {
-
-                  }
+                background-color: transparent;
+                color: #CEDEF2;
+                .custom-checkbox {
 
                 }
-              }
-            .text-task:focus {
-              box-shadow: 0 0 0 0.1rem rgba(196, 11, 166, 0.25);
-            }
 
-              input.form-control.text-task.form-input-task {
-                border: none;
-                color: #ffffff;
-                background-color: transparent;
 
               }
-            input.form-control.text-task.form-input-task.checkedText {
-              color: #abb0bf;
-              text-decoration: line-through;
+            .text-task {
+              border: none;
+              color: #ffffff;
+              background-color: transparent;
+              margin-left: .3rem;
+              margin-right: .3rem;
+              overflow: hidden;
+              min-height: 2em;
+              height: 44px;
+
+              width: 100%;
+              &:focus {
+                box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 1);
+              }
+              &.checkedText {
+                color: #abb0bf;
+                text-decoration: line-through;
+
+              }
 
             }
-              .input-group-append {
+            .autogrow-textarea-mirror {
+              display: none;
+              overflow-wrap: break-word;
+              white-space: normal;
+              padding: 3px;
+              width: 600px;
+              font-size: 13px;
+              line-height: 18px;
+
+            }
+
+            .input-group-append {
                 .remove-btn {
                   border-top-left-radius: .25rem;
                   border-bottom-left-radius: .25rem;
+                  border: none;
 
                 }
               }
