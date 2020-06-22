@@ -10,6 +10,7 @@
   color: #0437ec;
   text-decoration: line-through;
 
+
 }
 
 /*.input-group>.input-group-prepend>.input-group-text {
@@ -93,10 +94,10 @@ body {
           padding-left: 0;
           padding-right: 0;
           border-top: none;
+          display: flex;
+          align-items: center;
 
-          .task-group {
-            display: flex;
-            align-items: center;
+
               .input-group-prepend {
                 background-color: transparent;
                 color: #CEDEF2;
@@ -108,13 +109,16 @@ body {
               }
             .text-task {
               border: none;
+              overflow-wrap: break-word;
+              word-wrap: break-word;
+              hyphens: auto;
               color: #ffffff;
               background-color: transparent;
               margin-left: .3rem;
               margin-right: .3rem;
               overflow: hidden;
               min-height: 2em;
-              height: 44px;
+
 
               width: 100%;
               &:focus {
@@ -128,13 +132,21 @@ body {
 
             }
             .autogrow-textarea-mirror {
-              display: none;
+              display: block;
+              border: none;
               overflow-wrap: break-word;
+              word-wrap: break-word;
               white-space: normal;
-              padding: 3px;
-              width: 600px;
-              font-size: 13px;
-              line-height: 18px;
+              color: #ffffff;
+              background-color: transparent;
+              /*margin-left: 0.3rem;*/
+              margin-right: 0.3rem;
+              overflow: hidden;
+              min-height: 2em;
+              width: 100%;
+              margin-bottom: auto;
+              z-index: -3;
+              margin-left: -38.73rem
 
             }
 
@@ -147,7 +159,7 @@ body {
                 }
               }
 
-            }
+
 
 
 
@@ -164,4 +176,7 @@ body {
 
 
 
+}
+body .container .tasks-bord .box-tasks .task .task-group .text-task {
+  height: auto;
 }
