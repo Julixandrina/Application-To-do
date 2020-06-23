@@ -16,18 +16,18 @@ function onPageLoaded() {
 
 
 
-
         let task = document.createElement("div");//создание блока для нового таска
         task.classList.add('task');
         task.classList.add('list-group-item');
 
 
+        let divTextarea = document.createElement('div');
+        divTextarea.classList.add('autogrow-textarea-mirror');
+        divTextarea.classList.add('form-control');
+        divTextarea.innerHTML = newTodo;
 
         /*let groupContainerTask = document.createElement("div");//создание контейнера для внутринних блоков таска
         groupContainerTask.classList.add('task-group');*/
-
-
-
 
 
 
@@ -36,14 +36,12 @@ function onPageLoaded() {
         inputTextTask.classList.add('text-task');
         /*inputTextTask.classList.add('form-input-task');*/
         inputTextTask.setAttribute('type', 'text');
+        inputTextTask.value = divTextarea.innerHTML;
 
-        inputTextTask.value = newTodo;
 
 
-        let divTaxtarea = document.createElement('div');
-        divTaxtarea.classList.add('autogrow-textarea-mirror');
-        divTaxtarea.classList.add('form-control');
-        divTaxtarea.innerHTML = inputTextTask.value;
+
+        /*divTextarea.innerHTML = inputTextTask.value;*/
 
 
 
@@ -76,25 +74,7 @@ function onPageLoaded() {
         })
 
         task.append(inputTextTask);
-        task.append(divTaxtarea);
-
-        let scrollHeight = Math.max(
-            divTaxtarea.scrollHeight,
-            divTaxtarea.offsetHeight,
-            divTaxtarea.clientHeight
-        );
-
-        let scrollHeightTextarea = Math.max(
-            inputTextTask.scrollHeight,
-            inputTextTask.offsetHeight,
-            inputTextTask.clientHeight
-        );
-        /*console.log(scrollHeightTextarea);
-        console.log(scrollHeight);*/
-
-        inputTextTask.style.height = scrollHeight + 'px';
-
-
+        task.append(divTextarea);
         task.insertAdjacentHTML('afterbegin', '<div class="input-group-prepend">\n' +
             '        <div class="custom-control custom-checkbox">\n' +
             '            <input type="checkbox" class="checkbox custom-control-input" id="">\n' +
@@ -127,12 +107,9 @@ function onPageLoaded() {
         checkBoxes.id = uniqueLabelID;
         labelCheck.setAttribute('for', uniqueLabelFor);
 
+
         return task;
     }
-
-
-
-
 
 
     createTask.addEventListener('keydown', function(event) {
@@ -141,7 +118,27 @@ function onPageLoaded() {
             let newTodo = createTask.value;//значение введённое в главный инпут
            if (!newTodo) return;
            let task = createTodo(newTodo);
-            boxTasks.append(task);
+
+           boxTasks.append(task);
+
+
+            let textareaMirror = task.querySelector('.autogrow-textarea-mirror');
+            textareaMirror.innerHTML = newTodo;
+
+            let scrollHeight = Math.max(
+                textareaMirror.scrollHeight,
+                textareaMirror.offsetHeight,
+                textareaMirror.clientHeight
+            );
+            console.log(scrollHeight);
+
+            let topLevelTask = textareaMirror.closest('.task');
+
+            let textareaText = topLevelTask.querySelector('.text-task');
+
+            textareaText.style.height = scrollHeight + 10 + 'px';
+
+
         }
     });
 

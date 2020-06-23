@@ -1,13 +1,3 @@
-.checkedText {
-  color: #0437ec;
-  text-decoration: line-through;
-}
-
-/*.input-group>.input-group-prepend>.input-group-text {
-  border-top-right-radius: .25rem;
-  border-bottom-right-radius: .25rem;
-   background-color: transparent;
-}*/
 .btn-view {
   border-color: #CEDEF2;
   color: #CEDEF2;
@@ -91,8 +81,6 @@ body .container .tasks-bord .box-tasks .task .text-task {
   border: none;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  -webkit-hyphens: auto;
-          hyphens: auto;
   color: #ffffff;
   background-color: transparent;
   margin-left: 0.3rem;
@@ -116,7 +104,6 @@ body .container .tasks-bord .box-tasks .task .autogrow-textarea-mirror {
   white-space: normal;
   color: #ffffff;
   background-color: transparent;
-  /*margin-left: 0.3rem;*/
   margin-right: 0.3rem;
   overflow: hidden;
   min-height: 2em;
@@ -129,9 +116,5 @@ body .container .tasks-bord .box-tasks .task .input-group-append .remove-btn {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
   border: none;
-}
-
-body .container .tasks-bord .box-tasks .task .task-group .text-task {
-  height: auto;
 }
 /*# sourceMappingURL=style.css.map */
