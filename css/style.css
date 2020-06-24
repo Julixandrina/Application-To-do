@@ -15,10 +15,6 @@
   box-shadow: 0 0 0 0.1rem #0468bf;
 }
 
-.custom-control-input:focus ~ .custom-control-label::before {
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
-}
-
 body {
   font-family: "Source Serif Pro", serif;
   font-size: 14px;
@@ -103,6 +99,7 @@ body .container .tasks-bord .box-tasks .task .parent-container-for-textarea .aut
   overflow: hidden;
   min-height: 2em;
   width: 100%;
+  height: 38px;
   z-index: -3;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task {
@@ -116,7 +113,7 @@ body .container .tasks-bord .box-tasks .task .parent-container-for-textarea text
   margin-right: .3rem;*/
   overflow: hidden;
   min-height: 2em;
-  height: 0;
+  height: 38px;
   top: 0;
   left: 0;
   resize: none;
@@ -131,9 +128,5 @@ body .container .tasks-bord .box-tasks .task .parent-container-for-textarea text
 body .container .tasks-bord .box-tasks .task .input-group-append .remove-btn {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
-}
-
-.form-control {
-  height: auto;
 }
 /*# sourceMappingURL=style.css.map */
