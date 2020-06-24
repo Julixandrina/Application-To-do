@@ -19,16 +19,6 @@
   box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
 }
 
-.custom-control-label::before {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.custom-control-label::after {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
 body {
   font-family: "Source Serif Pro", serif;
   font-size: 14px;
@@ -72,31 +62,36 @@ body .container .tasks-bord .box-tasks .task {
   border-top: none;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
 }
 body .container .tasks-bord .box-tasks .task .input-group-prepend {
   background-color: transparent;
   color: #CEDEF2;
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
 }
-body .container .tasks-bord .box-tasks .task .text-task {
-  border: none;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  color: #ffffff;
+body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-control-label::before {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
   background-color: transparent;
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
-  overflow: hidden;
-  min-height: 2em;
-  width: 100%;
 }
-body .container .tasks-bord .box-tasks .task .text-task:focus {
-  box-shadow: 0 0 0 0.1rem white;
+body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-control-label::after {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  top: 0;
 }
-body .container .tasks-bord .box-tasks .task .text-task.checkedText {
-  color: #abb0bf;
-  text-decoration: line-through;
+body .container .tasks-bord .box-tasks .task .parent-container-for-textarea {
+  position: relative;
+  width: 90%;
+  display: flex;
 }
-body .container .tasks-bord .box-tasks .task .autogrow-textarea-mirror {
+body .container .tasks-bord .box-tasks .task .parent-container-for-textarea .autogrow-textarea-mirror.form-control {
   display: block;
   border: none;
   overflow-wrap: break-word;
@@ -104,17 +99,41 @@ body .container .tasks-bord .box-tasks .task .autogrow-textarea-mirror {
   white-space: normal;
   color: #ffffff;
   background-color: transparent;
-  margin-right: 0.3rem;
+  /*margin-right: 0.3rem;*/
   overflow: hidden;
   min-height: 2em;
   width: 100%;
-  margin-bottom: auto;
   z-index: -3;
-  margin-left: -38.73rem;
+}
+body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task {
+  position: absolute;
+  border: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  color: #ffffff;
+  background-color: transparent;
+  /*margin-left: .3rem;
+  margin-right: .3rem;*/
+  overflow: hidden;
+  min-height: 2em;
+  height: 0;
+  top: 0;
+  left: 0;
+  resize: none;
+}
+body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task:focus {
+  box-shadow: 0 0 0 0.1rem white;
+}
+body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task.checkedText {
+  color: #abb0bf;
+  text-decoration: line-through;
 }
 body .container .tasks-bord .box-tasks .task .input-group-append .remove-btn {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
-  border: none;
+}
+
+.form-control {
+  height: auto;
 }
 /*# sourceMappingURL=style.css.map */

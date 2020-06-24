@@ -20,6 +20,10 @@ function onPageLoaded() {
         task.classList.add('task');
         task.classList.add('list-group-item');
 
+        let parentContainerTaxtareaDiv = document.createElement('div');
+        parentContainerTaxtareaDiv.classList.add('parent-container-for-textarea');
+
+
 
         let divTextarea = document.createElement('div');
         divTextarea.classList.add('autogrow-textarea-mirror');
@@ -70,11 +74,14 @@ function onPageLoaded() {
                 inputDiv.offsetHeight,
                 inputDiv.clientHeight
             );
-            event.target.style.height = scrollHeight + 10 + 'px';
+            event.target.style.height = scrollHeight  + 'px';
+
+
         })
 
-        task.append(inputTextTask);
-        task.append(divTextarea);
+        parentContainerTaxtareaDiv.append(inputTextTask);
+        parentContainerTaxtareaDiv.append(divTextarea);
+        task.append(parentContainerTaxtareaDiv);
         task.insertAdjacentHTML('afterbegin', '<div class="input-group-prepend">\n' +
             '        <div class="custom-control custom-checkbox">\n' +
             '            <input type="checkbox" class="checkbox custom-control-input" id="">\n' +
@@ -135,7 +142,12 @@ function onPageLoaded() {
             let topLevelTask = textareaMirror.closest('.task');
 
             let textareaText = topLevelTask.querySelector('.text-task');
-
+            /*let coordsTextarea = textareaText.getBoundingClientRect().left;
+            let coordsTextareaMirror = textareaMirror.getBoundingClientRect().left;
+            console.log(coordsTextarea)
+            console.log(coordsTextareaMirror)
+            textareaMirror.style.marginLeft = -coordsTextarea + 'rem';
+            /!*coordsTextareaMirror = coordsTextarea;*!/*/
             textareaText.style.height = scrollHeight + 10 + 'px';
 
 
