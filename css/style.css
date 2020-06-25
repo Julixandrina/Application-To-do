@@ -6,12 +6,11 @@
   background-color: #0455BF;
   border-color: #CEDEF2;
 }
-
-.btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
+.btn-view:not(:disabled):not(.disabled):active {
   background-color: #3890dc;
   border-color: #CEDEF2;
 }
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+.btn-view:not(:disabled):not(.disabled):active:focus {
   box-shadow: 0 0 0 0.1rem #0468bf;
 }
 
@@ -27,7 +26,7 @@ body {
   font-weight: 400;
   color: #CEDEF2;
   line-height: 1.5;
-  background-color: #CEDEF2;
+  background-color: #E37F7D;
 }
 body .container {
   border-radius: 15px;
@@ -44,12 +43,15 @@ body .container .header h1 {
   font-weight: 700;
   color: white;
 }
-body .container .create-task {
+body .container .tasks-bord .create-task {
+  background-color: transparent;
+  border: 1px solid #2a6598;
+  border-radius: 0.25rem;
   color: #ffffff;
   font-family: "Heebo", "Montserrat", sans-serif;
   font-size: 1rem;
 }
-body .container ::placeholder {
+body .container .tasks-bord ::placeholder {
   color: #CEDEF2;
   font-size: 1rem;
   /*font-family: 'Pangolin', cursive;*/
@@ -59,11 +61,6 @@ body .container ::placeholder {
   font-weight: 400;
   color: #CEDEF2;
   line-height: 1.5;
-}
-body .container .tasks-bord .create-task {
-  background-color: transparent;
-  border: 1px solid #2a6598;
-  border-radius: 0.25rem;
 }
 body .container .tasks-bord .box-tasks {
   background-color: transparent;
@@ -75,7 +72,6 @@ body .container .tasks-bord .box-tasks .task {
   background-color: transparent;
   padding-left: 0;
   padding-right: 0;
-  /*border-top: none;*/
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -103,72 +99,34 @@ body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-contro
   top: 0;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea {
-  /*position: relative;
-  width: 90%;
-  display: flex;
-  align-items: center;*/
   display: flex;
   max-height: 100%;
   position: relative;
-  flex: 0 1 auto;
   min-width: 1px;
-  margin: 4px 2px;
+  margin: 4px;
   width: 90%;
   font-family: "Heebo", "Montserrat", sans-serif;
   font-size: 1rem;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea .autogrow-textarea-mirror.form-control {
-  /*display: block;
-  border: none;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  white-space: normal;
-  color: #ffffff;
-  background-color: transparent;
-  !*margin-right: 0.3rem;*!
-  !*overflow: hidden;*!
-  !*min-height: 10px;*!
-  !*height: 100px;*!
-  width: 100%;
-
-  z-index: -3;*/
   background: none;
   border: 0;
   min-height: 32px;
-  padding: 0;
   resize: none;
-  white-space: pre-wrap;
   word-wrap: break-word;
   height: auto;
   visibility: hidden;
   box-sizing: border-box;
   line-height: 32px;
   overflow: hidden;
-  text-rendering: optimizeSpeed;
   vertical-align: top;
   width: 100%;
   color: white;
   padding: 0 0.3rem;
-  /*transition: height 1s cubic-bezier(0.075, 0.82, 0.165, 1);*/
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task {
-  /*position: absolute;
-  border: none;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  color: #ffffff;
-  background-color: transparent;
-  !*margin-left: .3rem;
-  margin-right: .3rem;*!
-  !*overflow: hidden;
-  min-height: 10px;*!
-  height: 36px;
-  top: 0;
-  left: 0;
-  resize: none;*/
   overflow: hidden;
   resize: none;
-  text-rendering: optimizeSpeed;
   vertical-align: top;
   height: 100%;
   left: 0;
@@ -176,11 +134,13 @@ body .container .tasks-bord .box-tasks .task .parent-container-for-textarea text
   top: 0;
   width: 100%;
   background: none;
-  border: 0;
+  border: none;
   min-height: 32px;
   line-height: 32px;
   padding: 0 0.3rem;
   color: coral;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task:focus {
   box-shadow: 0 0 0 0.05rem white;
@@ -193,12 +153,4 @@ body .container .tasks-bord .box-tasks .task .input-group-append .remove-btn {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
-
-/*
-.form-control {
-  height: auto;
-
-
-}
-*/
 /*# sourceMappingURL=style.css.map */

@@ -12,37 +12,31 @@
   font-size: 1rem;
 
 }
-
 .btn-view {
  border-color: #CEDEF2;
   color: #CEDEF2;
-
   &:hover {
     background-color: #0455BF;
     border-color: #CEDEF2;
   }
-
-}
-.btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
-  background-color: #3890dc;
-  border-color: #CEDEF2;
-  &:focus {
-    box-shadow: 0 0 0 0.1rem rgb(4, 104, 191);
+  &:not(:disabled):not(.disabled):active {
+    background-color: #3890dc;
+    border-color: #CEDEF2;
+    &:focus {
+      box-shadow: 0 0 0 0.1rem rgb(4, 104, 191);
+    }
   }
 
-
 }
+
 
 .custom-control-input:focus~.custom-control-label::before {
   box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
 }
 
-
-
-
 body {
   @include standard-font;
-  background-color: #CEDEF2;
+  background-color: #E37F7D;
   .container {
     border-radius: 15px;
     background-color: #044277;
@@ -52,8 +46,6 @@ body {
     padding-top: 16px;
     margin-top: 1rem;
     margin-bottom: 1rem;
-
-
     .header {
       h1 {
         text-align: center;
@@ -61,144 +53,81 @@ body {
         color: white;
       }
     }
-    .create-task {
-      color: #ffffff;
-      @include font-for-task;
-    }
-    ::placeholder {
-      color: #CEDEF2;
-      font-size: 1rem;
-      @include standard-font;
-    }
     .tasks-bord {
       .create-task {
         background-color: transparent;
         border: 1px solid rgb(42, 101, 152);
         border-radius: .25rem;
+        color: #ffffff;
+        @include font-for-task;
+      }
+      ::placeholder {
+        color: #CEDEF2;
+        font-size: 1rem;
+        @include standard-font;
       }
       .box-tasks {
         background-color: transparent;
-
         .task.list-group-item {
           border-bottom: 1px solid rgb(42, 101, 152);
-
         }
-
         .task {
           background-color: transparent;
           padding-left: 0;
           padding-right: 0;
-          /*border-top: none;*/
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding-bottom: 1rem;
-
-
-
-              .input-group-prepend {
-                background-color: transparent;
-                color: #CEDEF2;
-               display: flex;
-                width: 2rem;
-                height: 2rem;
-                position: relative;
-
-                .custom-control-label::before {
-                  width: 2rem;
-                  height: 2rem;
-                  position: absolute;
-                  top: 0;
-                  background-color: transparent;
-                }
-                .custom-control-label::after {
-                  width: 2rem;
-                  height: 2rem;
-                 position: relative;
-                  top: 0;
-
-                }
-
-
-              }
-          .parent-container-for-textarea {
-            /*position: relative;
-            width: 90%;
+          .input-group-prepend {
+            background-color: transparent;
+            color: #CEDEF2;
             display: flex;
-            align-items: center;*/// last
-
+            width: 2rem;
+            height: 2rem;
+            position: relative;
+            .custom-control-label::before {
+              width: 2rem;
+              height: 2rem;
+              position: absolute;
+              top: 0;
+              background-color: transparent;
+            }
+            .custom-control-label::after {
+              width: 2rem;
+              height: 2rem;
+              position: relative;
+              top: 0;
+            }
+          }
+          .parent-container-for-textarea {
             display: flex;
             max-height: 100%;
             position: relative;
-            flex: 0 1 auto;
-
             min-width: 1px;
-            margin: 4px 2px;
+            margin: 4px;
             width: 90%;
             @include font-for-task;
 
-
             .autogrow-textarea-mirror.form-control {
-              /*display: block;
-              border: none;
-              overflow-wrap: break-word;
-              word-wrap: break-word;
-              white-space: normal;
-              color: #ffffff;
-              background-color: transparent;
-              !*margin-right: 0.3rem;*!
-              !*overflow: hidden;*!
-              !*min-height: 10px;*!
-              !*height: 100px;*!
-              width: 100%;
-
-              z-index: -3;*/ // last
-
-
               background: none;
               border: 0;
               min-height: 32px;
-              padding: 0;
               resize: none;
-              white-space: pre-wrap;
               word-wrap: break-word;
               height: auto;
               visibility: hidden;
               box-sizing: border-box;
               line-height: 32px;
               overflow: hidden;
-              text-rendering: optimizeSpeed;
               vertical-align: top;
               width: 100%;
               color: white;
               padding: 0 0.3rem;
-              /*transition: height 1s cubic-bezier(0.075, 0.82, 0.165, 1);*/
-
-
-
             }
-
             textarea.form-control.text-task {
-              /*position: absolute;
-              border: none;
-              overflow-wrap: break-word;
-              word-wrap: break-word;
-              color: #ffffff;
-              background-color: transparent;
-              !*margin-left: .3rem;
-              margin-right: .3rem;*!
-              !*overflow: hidden;
-              min-height: 10px;*!
-              height: 36px;
-              top: 0;
-              left: 0;
-              resize: none;*/ //last
-
-
-
               overflow: hidden;
               resize: none;
-              text-rendering: optimizeSpeed;
               vertical-align: top;
               height: 100%;
               left: 0;
@@ -206,12 +135,13 @@ body {
               top: 0;
               width: 100%;
               background: none;
-              border: 0;
+              border: none;
               min-height: 32px;
               line-height: 32px;
               padding: 0 0.3rem;
               color: coral;
-
+              overflow-wrap: break-word;
+              word-wrap: break-word;
               &:focus {
                 box-shadow: 0 0 0 0.05rem rgba(255, 255, 255, 1);
               }
@@ -222,38 +152,14 @@ body {
               }
             }
           }
-
           .input-group-append {
             .remove-btn {
               border-top-left-radius: .25rem;
               border-bottom-left-radius: .25rem;
-
-
             }
           }
-
-
-
-
-
-
         }
       }
     }
-
-
-
   }
-
-
-
-
-
 }
-/*
-.form-control {
-  height: auto;
-
-
-}
-*/
