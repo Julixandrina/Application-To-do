@@ -20,8 +20,9 @@
 }
 
 body {
-  font-family: "Source Serif Pro", serif;
-  font-size: 14px;
+  /*font-family: 'Pangolin', cursive;*/
+  font-family: "Cinzel", "Cormorant Infant", serif;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   color: #CEDEF2;
@@ -30,9 +31,9 @@ body {
 }
 body .container {
   border-radius: 15px;
-  background-color: #0468BF;
+  background-color: #044277;
   box-shadow: 0 0 0.7em black;
-  min-height: 100vh;
+  min-height: 95vh;
   padding-bottom: 16px;
   padding-top: 16px;
   margin-top: 1rem;
@@ -40,26 +41,41 @@ body .container {
 }
 body .container .header h1 {
   text-align: center;
+  font-weight: 700;
+  color: white;
 }
 body .container .create-task {
   color: #ffffff;
+  font-family: "Heebo", "Montserrat", sans-serif;
+  font-size: 1rem;
 }
 body .container ::placeholder {
   color: #CEDEF2;
+  font-size: 1rem;
+  /*font-family: 'Pangolin', cursive;*/
+  font-family: "Cinzel", "Cormorant Infant", serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #CEDEF2;
+  line-height: 1.5;
 }
 body .container .tasks-bord .create-task {
   background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid #2a6598;
   border-radius: 0.25rem;
 }
 body .container .tasks-bord .box-tasks {
   background-color: transparent;
 }
+body .container .tasks-bord .box-tasks .task.list-group-item {
+  border-bottom: 1px solid #2a6598;
+}
 body .container .tasks-bord .box-tasks .task {
   background-color: transparent;
   padding-left: 0;
   padding-right: 0;
-  border-top: none;
+  /*border-top: none;*/
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -87,42 +103,87 @@ body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-contro
   top: 0;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea {
-  position: relative;
+  /*position: relative;
   width: 90%;
   display: flex;
+  align-items: center;*/
+  display: flex;
+  max-height: 100%;
+  position: relative;
+  flex: 0 1 auto;
+  min-width: 1px;
+  margin: 4px 2px;
+  width: 90%;
+  font-family: "Heebo", "Montserrat", sans-serif;
+  font-size: 1rem;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea .autogrow-textarea-mirror.form-control {
-  display: block;
+  /*display: block;
   border: none;
   overflow-wrap: break-word;
   word-wrap: break-word;
   white-space: normal;
   color: #ffffff;
   background-color: transparent;
-  /*margin-right: 0.3rem;*/
-  overflow: hidden;
-  min-height: 2em;
+  !*margin-right: 0.3rem;*!
+  !*overflow: hidden;*!
+  !*min-height: 10px;*!
+  !*height: 100px;*!
   width: 100%;
-  z-index: -3;
+
+  z-index: -3;*/
+  background: none;
+  border: 0;
+  min-height: 32px;
+  padding: 0;
+  resize: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  height: auto;
+  visibility: hidden;
+  box-sizing: border-box;
+  line-height: 32px;
+  overflow: hidden;
+  text-rendering: optimizeSpeed;
+  vertical-align: top;
+  width: 100%;
+  color: white;
+  padding: 0 0.3rem;
+  /*transition: height 1s cubic-bezier(0.075, 0.82, 0.165, 1);*/
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task {
-  position: absolute;
+  /*position: absolute;
   border: none;
   overflow-wrap: break-word;
   word-wrap: break-word;
   color: #ffffff;
   background-color: transparent;
-  /*margin-left: .3rem;
-  margin-right: .3rem;*/
-  overflow: hidden;
-  min-height: 2em;
-  height: 0;
+  !*margin-left: .3rem;
+  margin-right: .3rem;*!
+  !*overflow: hidden;
+  min-height: 10px;*!
+  height: 36px;
   top: 0;
   left: 0;
+  resize: none;*/
+  overflow: hidden;
   resize: none;
+  text-rendering: optimizeSpeed;
+  vertical-align: top;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: none;
+  border: 0;
+  min-height: 32px;
+  line-height: 32px;
+  padding: 0 0.3rem;
+  color: coral;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task:focus {
-  box-shadow: 0 0 0 0.1rem white;
+  box-shadow: 0 0 0 0.05rem white;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task.checkedText {
   color: #abb0bf;
@@ -133,7 +194,11 @@ body .container .tasks-bord .box-tasks .task .input-group-append .remove-btn {
   border-bottom-left-radius: 0.25rem;
 }
 
+/*
 .form-control {
   height: auto;
+
+
 }
+*/
 /*# sourceMappingURL=style.css.map */

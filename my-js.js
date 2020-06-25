@@ -56,6 +56,7 @@ function onPageLoaded() {
         createTask.value = '';
 
         inputTextTask.addEventListener('keydown', function(event) {
+
             if (event.code === 'Enter') {
                 let task = createTodo("");
                 event.target.closest('.task').after(task);
@@ -74,7 +75,7 @@ function onPageLoaded() {
                 inputDiv.offsetHeight,
                 inputDiv.clientHeight
             );
-            event.target.style.height = scrollHeight  + 'px';
+            /*event.target.style.height = scrollHeight  + 'px';*/
 
 
         })
@@ -148,7 +149,8 @@ function onPageLoaded() {
             console.log(coordsTextareaMirror)
             textareaMirror.style.marginLeft = -coordsTextarea + 'rem';
             /!*coordsTextareaMirror = coordsTextarea;*!/*/
-            textareaText.style.height = scrollHeight + 10 + 'px';
+
+            /*textareaText.style.height = scrollHeight  + 'px';*/
 
 
         }
