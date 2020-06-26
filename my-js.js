@@ -35,7 +35,7 @@ function onPageLoaded() {
 
         inputTextTask.addEventListener('keydown', function(event) {
 
-            if (event.code === 'Enter') {
+            if (event.code === 'Enter' && ! event.shiftKey) {
                 let task = createTodo("");
                 event.target.closest('.task').after(task);
                 task.querySelector('.text-task').focus();
@@ -86,6 +86,7 @@ function onPageLoaded() {
         return task;
     }
 
+
     createTask.addEventListener('keydown', function(event) {
 
         if (event.code === 'Enter') {
@@ -103,12 +104,18 @@ function onPageLoaded() {
 
     btnClearFinished.addEventListener('click', function (event) {
         clearTaskFinished(event);
-    })
+    });
     btnAddTask.addEventListener('click', function(event) {
         let task = createTodo("");
         boxTasks.append(task);
         task.querySelector('.text-task').focus();
-    })
+    });
+
+    function addTasksFromArray(tasksArray = []) {
+
+    }
+
+    addTasksFromArray(["123", "abc", "Привет мир!"]);
 }
 
 function taskCheckboxBindEventClick(checkboxElement) {
