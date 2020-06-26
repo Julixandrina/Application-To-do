@@ -11,7 +11,7 @@ function onPageLoaded() {
     let btnAddTask = document.querySelector('.btn-add-task');
 
 
-    function createTodo(newTodo) {
+    function createTodo(newTodo, done = false) {
 
         let task = document.createElement("div");//создание блока для нового таска
         task.classList.add('task');
@@ -68,7 +68,7 @@ function onPageLoaded() {
         listenDeleteTodo(deleteBtn);
 
         let checkBox = task.querySelector('.checkbox');
-        taskCheckboxBindEventClick(checkBox);
+        taskCheckboxBindEventClick(checkBox, done);
 
         let allCreatedTask = boxTasks.querySelectorAll('.task');
 
@@ -112,18 +112,30 @@ function onPageLoaded() {
     });
 
     function addTasksFromArray(tasksArray = []) {
+        let arr = tasksArray;
+
+        let tasks = arr.map(function(item) {
+
+            let task = createTodo(item.text, item.done);
+
+            boxTasks.append(task);
+
+        });
+
 
     }
 
-    addTasksFromArray(["123", "abc", "Привет мир!"]);
+    addTasksFromArray([{text:"123", "done":false}, {text:"abc", "done": true }, {text:"Привет мир!", "done":false}]);
 }
 
-function taskCheckboxBindEventClick(checkboxElement) {
+function taskCheckboxBindEventClick(checkboxElement, done) {
     checkboxElement.addEventListener('change', function (event) {
         let parentThisElement = event.target.closest('.task');
         let inputText = parentThisElement.querySelector('.text-task');
         inputText.classList.toggle('checkedText');
+
     });
+
 }
 
 function listenDeleteTodo(element) {
