@@ -48,7 +48,7 @@ body .container .tasks-bord .create-task {
   border: 1px solid #2a6598;
   border-radius: 0.25rem;
   color: #ffffff;
-  font-family: "Heebo", "Montserrat", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
 }
 body .container .tasks-bord ::placeholder {
@@ -105,7 +105,7 @@ body .container .tasks-bord .box-tasks .task .parent-container-for-textarea {
   min-width: 1px;
   margin: 4px;
   width: 90%;
-  font-family: "Heebo", "Montserrat", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea .autogrow-textarea-mirror.form-control {

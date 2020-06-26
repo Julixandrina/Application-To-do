@@ -93,7 +93,7 @@ function onPageLoaded() {
            if (!newTodo) return;
            let task = createTodo(newTodo);
 
-           boxTasks.append(task);
+           boxTasks.prepend(task);
 
            let textareaMirror = task.querySelector('.autogrow-textarea-mirror');
            textareaMirror.innerHTML = newTodo;
