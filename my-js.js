@@ -29,6 +29,12 @@ function onPageLoaded() {
         inputTextTask.classList.add('form-control');
         inputTextTask.classList.add('text-task');
 
+        let checkedString = '';
+        if (done === true) {
+            inputTextTask.classList.add('checkedText');
+            checkedString = 'checked';
+        }
+
         inputTextTask.setAttribute('type', 'text');
         inputTextTask.value = divTextarea.innerHTML;
         createTask.value = '';
@@ -54,7 +60,7 @@ function onPageLoaded() {
         task.append(parentContainerTextareaDiv);
         task.insertAdjacentHTML('afterbegin', '<div class="input-group-prepend">\n' +
             '        <div class="custom-control custom-checkbox">\n' +
-            '            <input type="checkbox" class="checkbox custom-control-input" id="">\n' +
+            `            <input type="checkbox" class="checkbox custom-control-input" id="" ${checkedString} >\n` +
             '            <label class="custom-control-label label-checkbox" for=""></label>\n' +
             '        </div>\n' +
             '    </div>')
@@ -68,6 +74,7 @@ function onPageLoaded() {
         listenDeleteTodo(deleteBtn);
 
         let checkBox = task.querySelector('.checkbox');
+        checkBox.checked = true;// опустить ниже и сделать checked
         taskCheckboxBindEventClick(checkBox, done);
 
         let allCreatedTask = boxTasks.querySelectorAll('.task');
@@ -128,11 +135,13 @@ function onPageLoaded() {
     addTasksFromArray([{text:"123", "done":false}, {text:"abc", "done": true }, {text:"Привет мир!", "done":false}]);
 }
 
-function taskCheckboxBindEventClick(checkboxElement, done) {
+function taskCheckboxBindEventClick(checkboxElement) {
     checkboxElement.addEventListener('change', function (event) {
+
         let parentThisElement = event.target.closest('.task');
         let inputText = parentThisElement.querySelector('.text-task');
-        inputText.classList.toggle('checkedText');
+
+        inputText.classList.toggle('checkedText', this.checked);
 
     });
 
