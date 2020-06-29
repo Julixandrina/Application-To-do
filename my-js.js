@@ -1,5 +1,9 @@
 'use strict';
 
+localforage.config({
+    name: 'App To Do'
+});
+
 document.addEventListener("DOMContentLoaded", onPageLoaded);
 
 function onPageLoaded() {
@@ -44,6 +48,7 @@ function onPageLoaded() {
             if (event.code === 'Enter' && ! event.shiftKey) {
                 let task = createTodo("");
                 event.target.closest('.task').after(task);
+                saveTasksState();
                 task.querySelector('.text-task').focus();
                 event.preventDefault();
                 return false;
@@ -53,6 +58,11 @@ function onPageLoaded() {
             let parentThisElement = event.target.closest('.task');
             let inputDiv = parentThisElement.querySelector('.autogrow-textarea-mirror');
             inputDiv.innerHTML = inputTextTask.value;
+
+        })
+        inputTextTask.addEventListener('change', function (event) {
+            saveTasksState();
+
         })
 
         parentContainerTextareaDiv.append(inputTextTask);
@@ -111,6 +121,8 @@ function onPageLoaded() {
 
            boxTasks.prepend(task);
 
+            saveTasksState();
+
            let textareaMirror = task.querySelector('.autogrow-textarea-mirror');
            textareaMirror.innerHTML = newTodo;
         }
@@ -123,6 +135,7 @@ function onPageLoaded() {
     btnAddTask.addEventListener('click', function(event) {
         let task = createTodo("");
         boxTasks.append(task);
+        saveTasksState();
         task.querySelector('.text-task').focus();
     });
 
@@ -140,7 +153,16 @@ function onPageLoaded() {
 
     }
 
-    addTasksFromArray([{text:"123", "done":false}, {text:"abc", "done": true }, {text:"Привет мир!", "done":false}]);
+
+    localforage.getItem('savedTasks').then(function(tasks) {
+        if (tasks !== null) {
+            addTasksFromArray(tasks);
+        }
+    })
+
+
+
+
 }
 
 function taskCheckboxBindEventClick(checkboxElement) {
@@ -150,6 +172,7 @@ function taskCheckboxBindEventClick(checkboxElement) {
         let inputText = parentThisElement.querySelector('.text-task');
 
         inputText.classList.toggle('checkedText', this.checked);
+        saveTasksState();
 
     });
 
@@ -158,8 +181,10 @@ function taskCheckboxBindEventClick(checkboxElement) {
 function listenDeleteTodo(element) {
     element.addEventListener("click", function (event) {
         event.target.closest('.task').remove();
+        saveTasksState();
         event.stopPropagation();
     });
+
 }
 
 function  clearTaskFinished(event) {
@@ -169,11 +194,38 @@ function  clearTaskFinished(event) {
         let finishedTask = task.querySelector('.checkedText');
         if (finishedTask) {
             task.remove();
+            saveTasksState();
         }
     }
+
+
 }
 
+function saveTasksState() {
 
+    let tasks = [];
+    let allTasks = document.querySelectorAll('.task');
+
+
+    for (let task of allTasks) {
+
+        let textTextArea = task.querySelector('.text-task').value;
+
+        let checkboxState = task.querySelector('.checkbox').checked;
+
+        let objTask = {
+            text: textTextArea,
+            done: checkboxState
+        };
+
+        tasks.push(objTask);
+
+    }
+
+
+    localforage.setItem('savedTasks', tasks);
+
+}
 
 
 
