@@ -74,8 +74,16 @@ function onPageLoaded() {
         listenDeleteTodo(deleteBtn);
 
         let checkBox = task.querySelector('.checkbox');
-        checkBox.checked = true;// опустить ниже и сделать checked
-        taskCheckboxBindEventClick(checkBox, done);
+
+
+        if (done === true) {
+            checkBox.checked = true;
+            inputTextTask.classList.add('checkedText');
+        }
+
+
+
+        taskCheckboxBindEventClick(checkBox);
 
         let allCreatedTask = boxTasks.querySelectorAll('.task');
 
@@ -121,7 +129,7 @@ function onPageLoaded() {
     function addTasksFromArray(tasksArray = []) {
         let arr = tasksArray;
 
-        let tasks = arr.map(function(item) {
+         arr.map(function(item) {
 
             let task = createTodo(item.text, item.done);
 

@@ -111,7 +111,7 @@ body .container .tasks-bord .box-tasks .task .parent-container-for-textarea {
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea .autogrow-textarea-mirror.form-control {
   background: none;
   border: 0;
-  min-height: 32px;
+  min-height: 33px;
   resize: none;
   word-wrap: break-word;
   white-space: pre-wrap;
@@ -136,7 +136,7 @@ body .container .tasks-bord .box-tasks .task .parent-container-for-textarea text
   width: 100%;
   background: none;
   border: none;
-  min-height: 32px;
+  min-height: 33px;
   line-height: 32px;
   padding: 0 0.3rem;
   color: coral;
