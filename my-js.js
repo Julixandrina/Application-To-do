@@ -45,7 +45,7 @@ function onPageLoaded() {
 
         inputTextTask.addEventListener('keydown', function(event) {
 
-            if (event.code === 'Enter' && ! event.shiftKey) {
+            if ((event.key === 'Enter' || event.keyCode === 13) && ! event.shiftKey) {
                 let task = createTodo("");
                 event.target.closest('.task').after(task);
                 saveTasksState();
@@ -114,7 +114,7 @@ function onPageLoaded() {
 
     createTask.addEventListener('keydown', function(event) {
 
-        if (event.code === 'Enter') {
+        if ((event.key === 'Enter' || event.keyCode === 13) ) {
             let newTodo = createTask.value;//значение введённое в главный инпут
            if (!newTodo) return;
            let task = createTodo(newTodo);
