@@ -62,7 +62,7 @@ body {
         border: 2px solid #4389c5;
         border-radius: .25rem;
         color: #ffffff;
-        outline: none;
+        outline-color: transparent;
         @include font-for-task;
         &:focus {
           border: 2px solid #ffffff;
