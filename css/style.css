@@ -40,10 +40,9 @@ body .header h1 {
   margin-bottom: 0;
 }
 body .container {
-  border-radius: 0.25rem;
+  border-radius: 15px;
   background-color: #044277;
   box-shadow: 0 0 0.5em #214d86;
-  /*min-height: 95vh;*/
   padding-bottom: 16px;
   padding-top: 16px;
 }
@@ -52,8 +51,12 @@ body .container .tasks-bord .create-task {
   border: 2px solid #4389c5;
   border-radius: 0.25rem;
   color: #ffffff;
+  outline: none;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
+}
+body .container .tasks-bord .create-task:focus {
+  border: 2px solid #ffffff;
 }
 body .container .tasks-bord ::placeholder {
   color: #CEDEF2;
@@ -84,17 +87,6 @@ body .container .tasks-bord .box-tasks .task {
 body .container .tasks-bord .box-tasks .task:first-of-type {
   border-top: none;
 }
-body .container .tasks-bord .box-tasks .task .input-group-prepend {
-  background-color: transparent;
-  color: #CEDEF2;
-  display: flex;
-  width: 2rem;
-  height: 2rem;
-  position: relative;
-}
-body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-control-label {
-  transition: color 2s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
 body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-control-label::before {
   width: 2rem;
   height: 2rem;
@@ -103,8 +95,8 @@ body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-contro
   background-color: transparent;
 }
 body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-control-label::after {
-  width: 2rem;
-  height: 2rem;
+  width: 35px;
+  height: 35px;
   position: relative;
   top: 0;
   background-color: #0455BF;
@@ -115,12 +107,10 @@ body .container .tasks-bord .box-tasks .task .input-group-prepend .custom-contro
   background-color: #0468BF;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea {
-  display: flex;
-  max-height: 100%;
   position: relative;
   min-width: 1px;
-  margin: 0 4px;
-  width: 90%;
+  margin: 0 4px 0 -20px;
+  width: 100%;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
 }
@@ -161,7 +151,7 @@ body .container .tasks-bord .box-tasks .task .parent-container-for-textarea text
   white-space: pre-wrap;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task:focus {
-  box-shadow: 0 0 0 0.05rem white;
+  box-shadow: 0 0 0 1px white;
 }
 body .container .tasks-bord .box-tasks .task .parent-container-for-textarea textarea.form-control.text-task.checkedText {
   color: #abb0bf;
@@ -173,5 +163,11 @@ body .container .tasks-bord .box-tasks .task .input-group-append {
 body .container .tasks-bord .box-tasks .task .input-group-append .remove-btn {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
+}
+
+@media (min-width: 540px) {
+  body .container {
+    border-radius: 0.25rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
