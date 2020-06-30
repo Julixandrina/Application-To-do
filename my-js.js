@@ -57,7 +57,7 @@ function onPageLoaded() {
         inputTextTask.addEventListener('input', function (event) {
             let parentThisElement = event.target.closest('.task');
             let inputDiv = parentThisElement.querySelector('.autogrow-textarea-mirror');
-            inputDiv.innerHTML = inputTextTask.value;
+            inputDiv.innerHTML = inputTextTask.value+" ";
 
         })
         inputTextTask.addEventListener('change', function (event) {
@@ -133,7 +133,9 @@ function onPageLoaded() {
         clearTaskFinished(event);
     });
     btnAddTask.addEventListener('click', function(event) {
+
         let task = createTodo("");
+
         boxTasks.append(task);
         saveTasksState();
         task.querySelector('.text-task').focus();
