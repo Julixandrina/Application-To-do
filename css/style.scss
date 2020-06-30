@@ -87,7 +87,7 @@ body {
           padding-left: 0;
           padding-right: 0;
           display: flex;
-          align-items: center;
+          align-items: stretch;
           justify-content: space-between;
           padding-bottom: 1rem;
           .input-group-prepend {
@@ -155,7 +155,8 @@ body {
               word-wrap: break-word;
               white-space: pre-wrap;
               &:focus {
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                border: 1px solid #ced4da;
+                box-shadow: none;
               }
               &.checkedText {
                 color: #abb0bf;
