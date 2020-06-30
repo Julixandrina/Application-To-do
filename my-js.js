@@ -132,13 +132,30 @@ function onPageLoaded() {
     btnClearFinished.addEventListener('click', function (event) {
         clearTaskFinished(event);
     });
+
     btnAddTask.addEventListener('click', function(event) {
 
-        let task = createTodo("");
+        let newTodo = createTask.value;//значение введённое в главный инпут
 
-        boxTasks.append(task);
+        if (newTodo === '') {
+            let task = createTodo(newTodo);
+            boxTasks.append(task);
+            saveTasksState();
+            task.querySelector('.text-task').focus();
+
+            let textareaMirror = task.querySelector('.autogrow-textarea-mirror');
+            textareaMirror.innerHTML = newTodo;
+            return;
+        }
+        let task = createTodo(newTodo);
+
+        boxTasks.prepend(task);
+        task.querySelector('.text-task').blur();
         saveTasksState();
-        task.querySelector('.text-task').focus();
+        let textareaMirror = task.querySelector('.autogrow-textarea-mirror');
+        textareaMirror.innerHTML = newTodo;
+
+
     });
 
     function addTasksFromArray(tasksArray = []) {
