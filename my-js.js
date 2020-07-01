@@ -1,5 +1,29 @@
 'use strict';
 
+const i18nRu = {
+    btnAdd: 'Добавить',
+    inputNew: 'Новая задача',
+    btnDelChecked: 'Удалить выполненные',
+    title: 'Список задач'
+}
+
+let userLang = navigator.language || navigator.userLanguage;
+let userLangCode = userLang.substr(-2).toLowerCase();
+
+if (userLangCode === 'ru'){
+    let translateTags = document.querySelectorAll('[data-i18n]');
+    for (let tag of translateTags) {
+        let code = tag.dataset.i18n;
+
+        if (tag.tagName.toLowerCase() === 'input'){
+            tag.placeholder = i18nRu[code];
+        } else {
+            tag.innerText = i18nRu[code];
+        }
+    }
+}
+
+
 localforage.config({
     name: 'App To Do'
 });
